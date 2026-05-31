@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Studio — Portfolio Digital Profesional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { inter: ['Inter', 'sans-serif'] },
+          colors: { accent: '#8b5cf6' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);} }
+    .fade-in { animation: fadeIn 0.4s ease forwards; }
+    @keyframes typing { from{width:0;}to{width:100%;} }
+    @keyframes blink { 0%,50%{opacity:1;}51%,100%{opacity:0;} }
+    .cursor { display:inline-block; width:3px; height:1em; background:#8b5cf6; margin-left:3px; animation: blink 1s infinite; vertical-align: text-bottom; }
+    .skill-bar { transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .filter-btn.active { background:#8b5cf6; color:#fff; border-color:#8b5cf6; }
+    .project-card:hover .proj-overlay { opacity:1; }
+    .proj-overlay { transition: opacity 0.3s ease; }
+    .project-card:hover img { transform: scale(1.06); }
+    .project-card img { transition: transform 0.5s ease; }
+    ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#111;}::-webkit-scrollbar-thumb{background:#8b5cf6;border-radius:3px;}
+    .modal-bg { backdrop-filter: blur(12px); }
+    .progress-bar-wrap:hover .skill-bar { filter: brightness(1.2); }
+    @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);} }
+    .float { animation: float 4s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+    <a href="#" class="text-xl font-black">Alex<span class="text-accent">Studio</span></a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
+      <a href="#about" class="hover:text-white transition">Sobre mí</a>
+      <a href="#projects" class="hover:text-white transition">Proyectos</a>
+      <a href="#services" class="hover:text-white transition">Servicios</a>
+      <a href="#contact" class="hover:text-white transition">Contacto</a>
+    </div>
+    <a href="#contact" class="bg-accent hover:bg-violet-400 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">Hablemos →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  <div class="absolute inset-0">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl float"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-violet-800/15 rounded-full blur-3xl" style="animation:float 5s ease-in-out infinite reverse;"></div>
+  </div>
+  <div class="relative text-center max-w-4xl mx-auto px-4">
+    <p class="text-accent text-sm font-semibold tracking-widest uppercase mb-6">Portfolio Profesional</p>
+    <h1 class="text-7xl md:text-9xl font-black leading-none mb-6">Alex<br/><span class="text-accent">Studio</span></h1>
+    <div class="text-2xl md:text-3xl font-light text-gray-300 mb-10 h-10 flex items-center justify-center">
+      <span id="typedText"></span><span class="cursor"></span>
+    </div>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#projects" class="bg-accent hover:bg-violet-400 text-white font-bold px-8 py-4 rounded-2xl transition text-lg">Ver proyectos</a>
+      <a href="#contact" class="border border-white/20 hover:border-accent text-white font-semibold px-8 py-4 rounded-2xl transition text-lg">Contactar</a>
+    </div>
+    <div class="flex items-center justify-center gap-8 mt-14 text-sm">
+      <div class="text-center"><p class="text-3xl font-black text-accent">+60</p><p class="text-gray-400">Proyectos</p></div>
+      <div class="w-px h-10 bg-white/10"></div>
+      <div class="text-center"><p class="text-3xl font-black text-accent">5</p><p class="text-gray-400">Años exp.</p></div>
+      <div class="w-px h-10 bg-white/10"></div>
+      <div class="text-center"><p class="text-3xl font-black text-accent">98%</p><p class="text-gray-400">Satisfacción</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / SKILLS -->
+<section id="about" class="max-w-7xl mx-auto px-4 py-24">
+  <div class="grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="text-xs text-accent font-semibold tracking-widest uppercase">Sobre mí</span>
+      <h2 class="text-4xl font-black mt-3 mb-6">Diseño que <span class="text-accent">conecta</span> con personas.</h2>
+      <p class="text-gray-400 text-lg mb-5 leading-relaxed">Soy diseñador y desarrollador creativo con base en Madrid. Me especializo en crear experiencias digitales que no solo se ven bien, sino que funcionan.</p>
+      <p class="text-gray-400 mb-8 leading-relaxed">Trabajo con startups, agencias y empresas consolidadas que quieren destacar en un mercado saturado. Cada proyecto es una historia única que merece ser contada de forma memorable.</p>
+      <div class="flex flex-wrap gap-3">
+        <span class="bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-full">Figma</span>
+        <span class="bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-full">React</span>
+        <span class="bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-full">After Effects</span>
+        <span class="bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-full">Tailwind</span>
+        <span class="bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-full">Illustrator</span>
+        <span class="bg-white/5 border border-white/10 text-sm px-4 py-2 rounded-full">Lightroom</span>
+      </div>
+    </div>
+    <div class="space-y-5" id="skillsContainer">
+      <div class="progress-bar-wrap">
+        <div class="flex justify-between text-sm font-semibold mb-2"><span>Diseño UI</span><span class="text-accent">95%</span></div>
+        <div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-accent rounded-full w-0" data-width="95%"></div></div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="flex justify-between text-sm font-semibold mb-2"><span>Desarrollo Web</span><span class="text-accent">88%</span></div>
+        <div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-accent rounded-full w-0" data-width="88%"></div></div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="flex justify-between text-sm font-semibold mb-2"><span>Branding</span><span class="text-accent">90%</span></div>
+        <div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-accent rounded-full w-0" data-width="90%"></div></div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="flex justify-between text-sm font-semibold mb-2"><span>Motion Design</span><span class="text-accent">75%</span></div>
+        <div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-accent rounded-full w-0" data-width="75%"></div></div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="flex justify-between text-sm font-semibold mb-2"><span>Fotografía</span><span class="text-accent">80%</span></div>
+        <div class="h-2 bg-white/10 rounded-full overflow-hidden"><div class="skill-bar h-full bg-accent rounded-full w-0" data-width="80%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="bg-white/2 border-y border-white/5 py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="text-xs text-accent font-semibold tracking-widest uppercase">Trabajos seleccionados</span>
+      <h2 class="text-4xl font-black mt-3">Proyectos</h2>
+    </div>
+    <div class="flex flex-wrap gap-2 justify-center mb-10">
+      <button onclick="filterProjects('Todos')" class="filter-btn active text-sm font-semibold px-5 py-2.5 rounded-full border border-white/10 bg-white/5 transition" data-cat="Todos">Todos</button>
+      <button onclick="filterProjects('Web')" class="filter-btn text-sm font-semibold px-5 py-2.5 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition" data-cat="Web">Web</button>
+      <button onclick="filterProjects('Branding')" class="filter-btn text-sm font-semibold px-5 py-2.5 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition" data-cat="Branding">Branding</button>
+      <button onclick="filterProjects('UX/UI')" class="filter-btn text-sm font-semibold px-5 py-2.5 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition" data-cat="UX/UI">UX/UI</button>
+      <button onclick="filterProjects('Foto')" class="filter-btn text-sm font-semibold px-5 py-2.5 rounded-full border border-white/10 bg-white/5 hover:border-accent/50 transition" data-cat="Foto">Foto</button>
+    </div>
+    <div id="projectGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="max-w-7xl mx-auto px-4 py-24">
+  <div class="text-center mb-12">
+    <span class="text-xs text-accent font-semibold tracking-widest uppercase">Lo que ofrezco</span>
+    <h2 class="text-4xl font-black mt-3">Servicios</h2>
+  </div>
+  <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <div class="bg-white/5 border border-white/10 hover:border-accent/40 rounded-2xl p-8 transition group cursor-pointer">
+      <div class="w-14 h-14 bg-accent/15 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent/25 transition">🌐</div>
+      <h3 class="text-xl font-black mb-3">Diseño Web</h3>
+      <p class="text-gray-400 text-sm leading-relaxed mb-6">Webs y aplicaciones que combinan estética impecable con experiencia de usuario intuitiva.</p>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Landing pages</li>
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>E-commerce</li>
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Web apps</li>
+      </ul>
+      <p class="text-accent font-bold mt-6">Desde 1.200€</p>
+    </div>
+    <div class="bg-white/5 border border-accent/30 rounded-2xl p-8 transition group cursor-pointer relative">
+      <span class="absolute top-5 right-5 bg-accent text-white text-xs font-bold px-2 py-0.5 rounded-full">Popular</span>
+      <div class="w-14 h-14 bg-accent/15 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent/25 transition">✦</div>
+      <h3 class="text-xl font-black mb-3">Identidad Visual</h3>
+      <p class="text-gray-400 text-sm leading-relaxed mb-6">Marca completa desde cero: logotipo, paleta, tipografía y guía de estilo lista para usar.</p>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Logo + variantes</li>
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Brand book</li>
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Aplicaciones</li>
+      </ul>
+      <p class="text-accent font-bold mt-6">Desde 800€</p>
+    </div>
+    <div class="bg-white/5 border border-white/10 hover:border-accent/40 rounded-2xl p-8 transition group cursor-pointer">
+      <div class="w-14 h-14 bg-accent/15 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent/25 transition">📷</div>
+      <h3 class="text-xl font-black mb-3">Fotografía Creativa</h3>
+      <p class="text-gray-400 text-sm leading-relaxed mb-6">Fotografía de producto, corporativa y editorial. Imágenes que venden y emocionan.</p>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Producto / ecommerce</li>
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Editorial / moda</li>
+        <li class="flex items-center gap-2"><span class="text-accent">✓</span>Retoque profesional</li>
+      </ul>
+      <p class="text-accent font-bold mt-6">Desde 400€</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-white/2 border-t border-white/5 py-24">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="text-xs text-accent font-semibold tracking-widest uppercase">Hablemos</span>
+      <h2 class="text-4xl font-black mt-3">¿Tienes un proyecto?</h2>
+      <p class="text-gray-400 mt-3 max-w-md mx-auto">Cuéntame tu idea. Respondo en menos de 24h con una propuesta personalizada.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+      <a href="mailto:hola@alexstudio.es" class="flex items-center gap-3 bg-white/5 hover:bg-accent/15 border border-white/10 hover:border-accent/40 px-6 py-4 rounded-2xl transition group">
+        <span class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-xl group-hover:bg-accent/20 transition">✉️</span>
+        <div class="text-left"><p class="text-xs text-gray-400">Email</p><p class="font-semibold">hola@alexstudio.es</p></div>
+      </a>
+      <a href="https://instagram.com/alexstudio" target="_blank" class="flex items-center gap-3 bg-white/5 hover:bg-accent/15 border border-white/10 hover:border-accent/40 px-6 py-4 rounded-2xl transition group">
+        <span class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-xl group-hover:bg-accent/20 transition">📸</span>
+        <div class="text-left"><p class="text-xs text-gray-400">Instagram</p><p class="font-semibold">@alexstudio</p></div>
+      </a>
+      <a href="https://behance.net/alexstudio" target="_blank" class="flex items-center gap-3 bg-white/5 hover:bg-accent/15 border border-white/10 hover:border-accent/40 px-6 py-4 rounded-2xl transition group">
+        <span class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-xl group-hover:bg-accent/20 transition">🎨</span>
+        <div class="text-left"><p class="text-xs text-gray-400">Behance</p><p class="font-semibold">alexstudio</p></div>
+      </a>
+    </div>
+    <div id="contactForm" class="max-w-xl mx-auto bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <input id="cName" type="text" placeholder="Tu nombre" class="bg-[#111] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent transition w-full" />
+        <input id="cEmail" type="email" placeholder="tu@email.com" class="bg-[#111] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent transition w-full" />
+      </div>
+      <select id="cService" class="bg-[#111] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent transition w-full">
+        <option value="">Tipo de proyecto…</option>
+        <option>Diseño Web</option>
+        <option>Identidad Visual / Branding</option>
+        <option>Fotografía Creativa</option>
+        <option>UX/UI Design</option>
+        <option>Motion Design</option>
+        <option>Otro</option>
+      </select>
+      <textarea id="cMsg" rows="4" placeholder="Cuéntame tu proyecto…" class="bg-[#111] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-accent transition w-full resize-none"></textarea>
+      <button onclick="sendContact()" class="w-full bg-accent hover:bg-violet-400 text-white font-black py-4 rounded-xl transition">Enviar mensaje →</button>
+    </div>
+    <div id="contactSuccess" class="hidden max-w-xl mx-auto bg-white/5 border border-white/10 rounded-2xl p-10 text-center fade-in">
+      <div class="w-16 h-16 bg-green-500/15 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h3 class="text-2xl font-black mb-2">¡Mensaje enviado!</h3>
+      <p class="text-gray-400 text-sm">Perfecto. Te responderé en menos de 24 horas. ¡Espero que empecemos algo grande juntos!</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-10">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+    <span class="font-black text-white text-lg">Alex<span class="text-accent">Studio</span></span>
+    <span>Desarrollado por <span style="color:#8b5cf6" class="font-semibold">PuntoZero Solutions</span></span>
+    <span>© 2025 Alex Studio. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<!-- PROJECT MODAL -->
+<div id="projectModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-bg bg-black/70">
+  <div class="bg-[#111] border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto fade-in">
+    <div class="relative">
+      <img id="modalImg" src="" alt="" class="w-full h-56 object-cover rounded-t-2xl" />
+      <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 bg-black/60 hover:bg-accent rounded-full flex items-center justify-center text-white font-bold transition text-lg">×</button>
+      <span id="modalCat" class="absolute top-4 left-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full"></span>
+    </div>
+    <div class="p-8">
+      <h3 id="modalTitle" class="text-2xl font-black mb-1"></h3>
+      <p id="modalClient" class="text-accent text-sm font-semibold mb-4"></p>
+      <div class="grid sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h4 class="text-xs font-bold text-gray-400 uppercase mb-2">El reto</h4>
+          <p id="modalProblem" class="text-gray-300 text-sm leading-relaxed"></p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-gray-400 uppercase mb-2">La solución</h4>
+          <p id="modalSolution" class="text-gray-300 text-sm leading-relaxed"></p>
+        </div>
+      </div>
+      <div class="bg-white/5 rounded-xl p-4 mb-4 flex items-center gap-4">
+        <div class="text-3xl font-black text-accent" id="modalMetric"></div>
+        <div><p class="text-xs text-gray-400">Resultado clave</p><p id="modalMetricLabel" class="font-semibold text-sm mt-0.5"></p></div>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold text-gray-400 uppercase mb-2">Herramientas</h4>
+        <div id="modalTools" class="flex flex-wrap gap-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// TYPING EFFECT
+const phrases = ['Diseñador UI/UX.', 'Desarrollador Web.', 'Creativo Digital.', 'Brand Designer.'];
+let phraseIdx = 0, charIdx = 0, deleting = false;
+function type() {
+  const el = document.getElementById('typedText');
+  const phrase = phrases[phraseIdx];
+  if (!deleting) {
+    el.textContent = phrase.slice(0, charIdx + 1);
+    charIdx++;
+    if (charIdx === phrase.length) { deleting = true; setTimeout(type, 1600); return; }
+  } else {
+    el.textContent = phrase.slice(0, charIdx - 1);
+    charIdx--;
+    if (charIdx === 0) { deleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; }
+  }
+  setTimeout(type, deleting ? 55 : 90);
+}
+type();
+
+// SKILL BARS (IntersectionObserver)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-bar').forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+    }
+  });
+}, { threshold: 0.3 });
+observer.observe(document.getElementById('skillsContainer'));
+
+// PROJECTS DATA
+const projects = [
+  { id:1, title:'Rebrand Fintech', cat:'Branding', client:'NeoBank ES', img:'img/proj1.webp', problem:'Identidad visual anticuada que no generaba confianza en usuarios jóvenes.', solution:'Sistema de marca completo con paleta oscura, tipografía moderna y set de iconos custom.', metric:'+340%', metricLabel:'aumento en descargas tras rebrand', tools:['Figma','Illustrator','After Effects'] },
+  { id:2, title:'E-commerce Fashion', cat:'Web', client:'Moda Nómada', img:'img/proj2.webp', problem:'Tienda online con tasa de conversión inferior al 0.8%.', solution:'Rediseño UX completo, checkout en 2 pasos y sistema de tallas visual.', metric:'3.2×', metricLabel:'mejora en tasa de conversión', tools:['React','Tailwind','Figma','Shopify'] },
+  { id:3, title:'App Bienestar', cat:'UX/UI', client:'MindSet App', img:'img/proj3.webp', problem:'Onboarding confuso con abandono del 65% en los primeros 3 minutos.', solution:'Flujo gamificado con micro-animaciones y progreso visible desde el primer uso.', metric:'-52%', metricLabel:'reducción en tasa de abandono', tools:['Figma','Principle','Lottie'] },
+  { id:4, title:'Campaña Editorial', cat:'Foto', client:'Revista Forma', img:'img/proj4.webp', problem:'Contenido fotográfico inconsistente y sin identidad propia de la publicación.', solution:'Dirección de arte y sesión de 2 días con 80 imágenes en un estilo cohesionado.', metric:'2.1M', metricLabel:'impresiones en redes sociales', tools:['Lightroom','Photoshop','Capture One'] },
+  { id:5, title:'Dashboard SaaS', cat:'UX/UI', client:'DataFlow Pro', img:'img/proj1.webp', problem:'Panel de analítica con 40+ métricas sin jerarquía visual ni flujo claro.', solution:'Arquitectura de información nueva, sistema de componentes y dark mode nativo.', metric:'92%', metricLabel:'satisfacción en tests con usuarios', tools:['Figma','Storybook','React'] },
+  { id:6, title:'Identidad Restaurante', cat:'Branding', client:'Kuro Bistró', img:'img/proj2.webp', problem:'Apertura de restaurante sin ninguna identidad visual diferenciadora.', solution:'Brand desde cero: logo, menús, señalética, uniforme y redes sociales en 3 semanas.', metric:'4.9★', metricLabel:'valoración media en Google desde apertura', tools:['Illustrator','InDesign','Figma'] },
+  { id:7, title:'Portfolio Fotógrafa', cat:'Web', client:'Clara Vidal Photo', img:'img/proj3.webp', problem:'Fotógrafa con trabajo excepcional pero sin presencia web profesional.', solution:'Portfolio con galería masonry, lazy loading optimizado y sesión de contacto integrada.', metric:'+8', metricLabel:'clientes nuevos primer mes post-lanzamiento', tools:['HTML/CSS','JS','Lightroom'] },
+  { id:8, title:'Foto Producto Sport', cat:'Foto', client:'TrailGear', img:'img/proj4.webp', problem:'Imágenes de producto planas que no comunicaban el espíritu outdoor de la marca.', solution:'Sesión exterior en entorno natural con 120 fotos de producto en contexto real.', metric:'+28%', metricLabel:'incremento ventas online tras campaña', tools:['Sony A7IV','Lightroom','Photoshop'] },
+];
+
+let currentCat = 'Todos';
+
+function renderProjects() {
+  const grid = document.getElementById('projectGrid');
+  const filtered = currentCat === 'Todos' ? projects : projects.filter(p => p.cat === currentCat);
+  grid.innerHTML = filtered.map(p => `
+    <div onclick="openModal(${p.id})" class="project-card bg-white/5 border border-white/10 hover:border-accent/40 rounded-2xl overflow-hidden cursor-pointer transition group">
+      <div class="relative h-48 overflow-hidden">
+        <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover opacity-70" onerror="this.style.display='none'" />
+        <div class="proj-overlay absolute inset-0 bg-accent/20 opacity-0 flex items-center justify-center">
+          <span class="bg-accent text-white text-sm font-bold px-5 py-2.5 rounded-full">Ver proyecto →</span>
+        </div>
+        <span class="absolute top-3 left-3 bg-black/60 backdrop-blur text-white text-xs font-semibold px-2.5 py-1 rounded-full border border-white/10">${p.cat}</span>
+      </div>
+      <div class="p-5">
+        <h3 class="font-bold text-base group-hover:text-accent transition">${p.title}</h3>
+        <p class="text-xs text-gray-400 mt-1">${p.client}</p>
+      </div>
+    </div>`).join('');
+}
+
+function filterProjects(cat) {
+  currentCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    const match = b.dataset.cat === cat;
+    b.className = `filter-btn ${match ? 'active' : 'bg-white/5 text-gray-300 border-white/10 hover:border-accent/50'} text-sm font-semibold px-5 py-2.5 rounded-full border transition`;
+  });
+  renderProjects();
+}
+
+function openModal(id) {
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modalImg').src = p.img;
+  document.getElementById('modalCat').textContent = p.cat;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalClient').textContent = p.client;
+  document.getElementById('modalProblem').textContent = p.problem;
+  document.getElementById('modalSolution').textContent = p.solution;
+  document.getElementById('modalMetric').textContent = p.metric;
+  document.getElementById('modalMetricLabel').textContent = p.metricLabel;
+  document.getElementById('modalTools').innerHTML = p.tools.map(t => `<span class="bg-white/5 border border-white/10 text-xs px-3 py-1.5 rounded-full">${t}</span>`).join('');
+  document.getElementById('projectModal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('projectModal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('projectModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// CONTACT FORM
+function sendContact() {
+  const name = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const msg = document.getElementById('cMsg').value.trim();
+  if (!name || !email || !msg) { showToast('Por favor, rellena nombre, email y mensaje'); return; }
+  document.getElementById('contactForm').classList.add('hidden');
+  document.getElementById('contactSuccess').classList.remove('hidden');
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-white text-black text-sm font-semibold px-5 py-3 rounded-full z-[60] fade-in shadow-xl';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2800);
+}
+
+renderProjects();
+</script>
+</body>
+</html>
